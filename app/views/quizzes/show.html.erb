@@ -1,0 +1,107 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid bg-info">
+    <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+          <p id = "h2">
+            <strong>Quiz Name(Subgenre):</strong>
+            <%= @quiz.name %>
+          </p><br/><br/><br/><br/>
+
+
+          <p>
+
+
+            <%= form_for :arr, controller: "quizzes", action: "submit", method: "post", class: "form-horizontal" do |form|%>
+            <% for i in 0..allquestions(@quiz.subgenre_id).length-1 %>
+            <h3><span class="label label-warning" id="qid"><%= i+1 %></span><%= allquestions(@quiz.subgenre_id)[i].description.html_safe %></h3>
+
+            <br>
+            <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary">
+              <%= form.check_box(allquestions(@quiz.subgenre_id)[i].id.to_s + '[1]') %> <%= allquestions(@quiz.subgenre_id)[i].choice1.html_safe%>
+            </label>
+            </br>
+            </br>
+            </br>
+            </br>
+
+
+            <label class="btn btn-primary">
+              <%= form.check_box(allquestions(@quiz.subgenre_id)[i].id.to_s + '[2]') %> <%= allquestions(@quiz.subgenre_id)[i].choice2.html_safe%>
+            </label>
+            </br>
+            </br>
+            </br>
+            </br>
+
+            <label class="btn btn-primary">
+              <%= form.check_box(allquestions(@quiz.subgenre_id)[i].id.to_s + '[3]') %> <%= allquestions(@quiz.subgenre_id)[i].choice3.html_safe%>
+            </label>
+            </br>
+            </br>
+            </br>
+            </br>
+
+            <label class="btn btn-primary">
+              <%= form.check_box(allquestions(@quiz.subgenre_id)[i].id.to_s + '[4]') %> <%= allquestions(@quiz.subgenre_id)[i].choice4.html_safe%>
+            </label>
+            </br>
+            </br>
+            </br>
+            </br>
+
+
+            <% end %>
+            </br>
+            </br>
+            </br>
+
+
+            <div class="btn-group" data-toggle="buttons">
+            <input type="text" class="hidden" name="id" value="<%= @quiz.id %>">
+            <pre>                             <%= form.submit "Submit", :name => nil, type: "submit", class: "btn btn-lg btn-primary"%>                           </pre>
+            <% end %>
+          <br/>
+          <br/>
+          <br/>
+          <pre>               <%= link_to 'Edit', edit_quiz_path(@quiz),class: "btn btn-lg btn-primary" %>                <%= link_to 'Back', quizzes_path,class: "btn btn-lg btn-success" %>              </pre>
+          <!-- <%= link_to 'Back', quizzes_path,class: "btn btn-lg btn-success" %></pre> -->
+<!-- <script>
+  var score = 0;
+  var form = document.getElementById('name-form');
+  form.onsubmit = function(e){
+    e.preventDefault();
+    if(document.getElementsByName('value1').checked){
+      if(document.getElementsByName('value1').value == true){
+        score=score+10;
+        var result = document.getElementById('score');
+        result.innerHTML = score;
+      }
+    }
+    else if (document.getElementsByName('value2').checked) {
+      if(document.getElementsByName('value2').value == true){
+        score=score+10;
+        alert('heello');
+        var result = document.getElementById('score');
+        result.innerHTML = score;
+      }
+    }
+    else if (document.getElementsByName('value3').checked) {
+      if(document.getElementsByName('value3').value == true){
+        score=score+10;
+        var result = document.getElementById('score');
+        result.innerHTML = score;
+      }
+    }
+    else if (document.getElementsByName('value4').checked) {
+      if(document.getElementsByName('value4').value == true){
+        score=score+10;
+        var result = document.getElementById('score');
+        result.innerHTML = score;
+      }
+    }
+    var result = document.getElementById('score');
+    result.innerHTML = score;
+}
+</script> -->

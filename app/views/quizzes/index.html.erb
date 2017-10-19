@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<br/><br/><br/><br/>
+<h1 id="h1">Quizzes</h1>
+<br/><br/><br/>
+
+<table>
+  <thead>
+    <tr>
+      <th><p id="h2">Name</p></th>
+      <th colspan="6"></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <br><br><br>
+    <% @quizzes.each do |quiz| %>
+      <tr></tr>
+      <tr>
+        <td colspan="2"><p id="h2"><%= quiz.name %></p></td>
+        <td colspan="2"><%= link_to 'Shall We Play', quiz,class: "btn btn-lg btn-primary" %>
+        <td colspan="2"><%= link_to 'Edit', edit_quiz_path(quiz),class: "btn btn-lg btn-success" %></td>
+        <td colspan="2">
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br><br><br><br>
+<%= link_to 'Go back to User Path', root_path,class: "btn btn-lg btn-success" %>
+<%= link_to 'New Quiz', new_quiz_path,class: "btn btn-lg btn-success" %>

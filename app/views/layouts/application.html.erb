@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QuizApp</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+
+  <body id = "bground">
+  <div>
+  <br>
+  <div class = "container">
+    <div id = "Home">
+    <% if current_user %>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <%= link_to "Logout",destroy_user_session_path,method: :delete,class: "btn btn-lg btn-primary" %>
+      <%= link_to "Admin",rails_admin_path, class: "btn btn-lg btn-primary" %>
+      <%= link_to "New Quiz", quizzes_path , class: "btn btn-lg btn-primary" %>
+    <% else %>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <%= link_to "Login for Existing User",new_user_session_path ,class: "btn btn-danger btn-lg"%>
+    <% end %>
+    </div>
+
+    <%= yield %>
+  </div>
+  </div>
+  </body>
+</html>
