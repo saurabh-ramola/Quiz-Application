@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+Quiz Application made on Ruby on Rails
 Things you may want to cover:
 
-* Ruby version
+**1** Genres/Subgenres can be created only by admin
+**2** Quizzes can be made only by admin
+**3** There is only one Admin
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## May be updated in the future
